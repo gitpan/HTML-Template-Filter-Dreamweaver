@@ -24,7 +24,7 @@ our @EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
 our @EXPORT = qw(
 	
 );
-our $VERSION = '1.00';
+our $VERSION = '1.01';
 
 
 # Preloaded methods go here.
@@ -347,8 +347,61 @@ HTML::Template::Filter::Dreamweaver - a module that provides a filter function t
 =head1 DESCRIPTION
  This module will translate Dreamweaver MX templates into a form understood HTML::Template
 
+ This used to be the old documentation...
  For the most part this module should work exactly how you expect it should.  There are a few
  features in this module that Dreamweaver designers should know about.
+
+ As you might expect, I got a few requests for something more descriptive.  Here is a second try.
+ 
+ Dreamweaver MX has updated their templating code fairly heavily, and 
+ now it supports many of the things that HTML::Template does.
+ 
+ For example, you can define template variables, repeating sections, use 
+ conditional logic, etc.  I'll try to give a quick summation here, but 
+ in all honesty, you would do better by browsing Macromedia's website, 
+ downloading the trial version. or buying a book on it.
+ 
+ Dreamweaver allows you to set up a template file (it ends in an 
+ extension called .dwt).  You can then use this template to create HTML 
+ files where you change the pre-defined parameters of the template.
+ 
+ Some examples:
+ Dreamweaver MX prefers that all variables in the template be named at 
+ the top of the .dwt HTML.  This is done by using the <!-- TemplateParam 
+ --> tag.  You can define a default for the parameters and you also 
+ define the type of variable (e.g. boolean, text, number, etc.)
+ 
+ In the HTML of the template, you can then use your variables in syntax 
+ like <!-- TemplateExpr expr="foo" --> or @@(foo)@@.  This is analagous 
+ to the <TMPL_VAR> syntax of HTML::Template
+ 
+ Another Dreamweaver tag is the <!-- TemplateBeginIf --> and <!-- 
+ TemplateEndIf --> tags.  These are similar to the <TMPL_IF> and 
+ </TMPL_IF> tags.
+ 
+ Also, there are <!-- TemplateBeginRepeat --> and <!-- TemplateEndRepeat 
+ --> tags.  As you can guess, these are similar to the <TMPL_LOOP> and 
+ </TMPL_LOOP> tags.
+ 
+ There's also a few more tags, but as you can see Dreamweaver MX 
+ supports syntax very similar to HTML::Template.
+ 
+ Finally, for seeing what the page would look like when you populate the 
+ variables, Dreamweaver allows you to create an HTML page using the 
+ template as a starting point.  Under the "Modify" menu, there is a 
+ choice that says "Template Properties".  In there, you can set 
+ variables to whatever you like.  This is very similar to the param 
+ function of HTML::Template.
+ 
+ Personally, I think Dreamweaver MX is so close to HTML::Template that 
+ it's possible for an HTML designer to use it and create great mockups 
+ of pages.  After developing the mockup, he can give the template to an 
+ HTML::Template user who can then combine it with his code to 
+ dynamically fill in the template variables.
+ 
+ So, the package that I provided should create be an excellent transform 
+ function for converting Dreamweaver template files into HTML::Template 
+ files.
 
 =over 4
 

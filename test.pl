@@ -6,7 +6,7 @@
 # change 'tests => 1' to 'tests => last_test_to_print';
 
 use Test;
-BEGIN { plan tests => 1 };
+BEGIN { plan tests => 258 };
 use HTML::Template::Filter::Dreamweaver qw( DWT2HTML DWT2HTMLExpr );
 ok(1); # If we made it this far, we're ok.
 
